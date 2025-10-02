@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeSecure - Activity Logs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body" onload="loadLogs()">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-left">
+            <div class="logo-small">
+                <svg width="24" height="18" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bicycle logo (scaled down) -->
+                    <path d="M20 18 Q25 15 30 18" stroke="#2563eb" stroke-width="2" fill="none"/>
+                    <circle cx="18" cy="18" r="1.5" fill="#2563eb"/>
+                    <path d="M30 18 L40 35 L55 18 L40 35 L25 35 Z" stroke="#2563eb" stroke-width="2" fill="none"/>
+                    <ellipse cx="55" cy="15" rx="6" ry="2" fill="#60a5fa"/>
+                    <path d="M55 18 L40 35" stroke="#2563eb" stroke-width="2"/>
+                    <circle cx="15" cy="45" r="8" stroke="#1e293b" stroke-width="2" fill="none"/>
+                    <circle cx="15" cy="45" r="5" stroke="#60a5fa" stroke-width="1" fill="none"/>
+                    <circle cx="15" cy="45" r="2" fill="#2563eb"/>
+                    <circle cx="65" cy="45" r="8" stroke="#1e293b" stroke-width="2" fill="none"/>
+                    <circle cx="65" cy="45" r="5" stroke="#60a5fa" stroke-width="1" fill="none"/>
+                    <circle cx="65" cy="45" r="2" fill="#2563eb"/>
+                    <line x1="25" y1="35" x2="15" y2="45" stroke="#2563eb" stroke-width="2"/>
+                    <line x1="55" y1="35" x2="65" y2="45" stroke="#2563eb" stroke-width="2"/>
+                </svg>
+            </div>
+            <h1 class="dashboard-title">BikeSecure Dashboard</h1>
+        </div>
+        
+        <div class="header-right">
+            <div class="user-info">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8" cy="4" r="3" fill="#6b7280"/>
+                    <path d="M2 14c0-3.5 2.5-6 6-6s6 2.5 6 6" stroke="#6b7280" stroke-width="1.5"/>
+                </svg>
+                <span class="username">mmm@gmail.com</span>
+            </div>
+            
+            <a href="dashboard.html" class="header-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="5" height="5" rx="1" fill="#6b7280"/>
+                    <rect x="9" y="2" width="5" height="5" rx="1" fill="#6b7280"/>
+                    <rect x="2" y="9" width="5" height="5" rx="1" fill="#6b7280"/>
+                    <rect x="9" y="9" width="5" height="5" rx="1" fill="#6b7280"/>
+                </svg>
+                Dashboard
+            </a>
+            
+            <a href="login.html" class="logout-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2M10 6l4 2-4 2M14 8H6" stroke="#6b7280" stroke-width="1.5"/>
+                </svg>
+                Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="logs-container">
+            <div class="logs-header">
+                <div>
+                    <h2 class="logs-title">Activity Logs</h2>
+                    <p class="logs-subtitle">Track all lock and unlock activities for your bike</p>
+                </div>
+                <button class="clear-logs-btn" onclick="clearLogs()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 4h12M5.5 4V3a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1M12 4v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Clear Logs
+                </button>
+            </div>
+
+            <div class="logs-table-container">
+                <table class="logs-table">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Timestamp</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logsTableBody">
+                        <!-- Logs will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="28" fill="#f1f5f9"/>
+                    <path d="M32 20v16M32 44h.01" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <h3>No Activity Logs</h3>
+                <p>Start using your bike to see activity logs here</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="logs.js"></script>
+</body>
+</html>

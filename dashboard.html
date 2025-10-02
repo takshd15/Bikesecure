@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeSecure Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body" onload="loadBikeStatus()">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-left">
+            <div class="logo-small">
+                <svg width="24" height="18" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bicycle logo (scaled down) -->
+                    <path d="M20 18 Q25 15 30 18" stroke="#2563eb" stroke-width="2" fill="none"/>
+                    <circle cx="18" cy="18" r="1.5" fill="#2563eb"/>
+                    <path d="M30 18 L40 35 L55 18 L40 35 L25 35 Z" stroke="#2563eb" stroke-width="2" fill="none"/>
+                    <ellipse cx="55" cy="15" rx="6" ry="2" fill="#60a5fa"/>
+                    <path d="M55 18 L40 35" stroke="#2563eb" stroke-width="2"/>
+                    <circle cx="15" cy="45" r="8" stroke="#1e293b" stroke-width="2" fill="none"/>
+                    <circle cx="15" cy="45" r="5" stroke="#60a5fa" stroke-width="1" fill="none"/>
+                    <circle cx="15" cy="45" r="2" fill="#2563eb"/>
+                    <circle cx="65" cy="45" r="8" stroke="#1e293b" stroke-width="2" fill="none"/>
+                    <circle cx="65" cy="45" r="5" stroke="#60a5fa" stroke-width="1" fill="none"/>
+                    <circle cx="65" cy="45" r="2" fill="#2563eb"/>
+                    <line x1="25" y1="35" x2="15" y2="45" stroke="#2563eb" stroke-width="2"/>
+                    <line x1="55" y1="35" x2="65" y2="45" stroke="#2563eb" stroke-width="2"/>
+                </svg>
+            </div>
+            <h1 class="dashboard-title">BikeSecure Dashboard</h1>
+        </div>
+        
+        <div class="header-right">
+            <div class="user-info">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8" cy="4" r="3" fill="#6b7280"/>
+                    <path d="M2 14c0-3.5 2.5-6 6-6s6 2.5 6 6" stroke="#6b7280" stroke-width="1.5"/>
+                </svg>
+                <span class="username">mmm@gmail.com</span>
+            </div>
+            
+            <a href="logs.html" class="header-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 2v12M2 8h12" stroke="#6b7280" stroke-width="1.5"/>
+                </svg>
+                View Logs
+            </a>
+            
+            <a href="login.html" class="logout-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2M10 6l4 2-4 2M14 8H6" stroke="#6b7280" stroke-width="1.5"/>
+                </svg>
+                Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Top Cards Row -->
+        <div class="cards-row">
+            <!-- Bike Status Card -->
+            <div class="status-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 15c2.5 0 4.5-2 4.5-4.5S7.5 6 5 6s-4.5 2-4.5 4.5S2.5 15 5 15z" stroke="#6b7280" stroke-width="1.5"/>
+                            <path d="M15 15c2.5 0 4.5-2 4.5-4.5S17.5 6 15 6s-4.5 2-4.5 4.5S12.5 15 15 15z" stroke="#6b7280" stroke-width="1.5"/>
+                            <path d="M5 10.5h5l2.5-2.5h2.5" stroke="#6b7280" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Bike Status</h3>
+                </div>
+                <p class="card-subtitle">Current lock status and last activity</p>
+                
+                <div class="status-info">
+                    <div class="status-row">
+                        <span class="status-label">Status:</span>
+                        <span id="statusBadge" class="status-badge locked">LOCKED</span>
+                    </div>
+                    <div class="last-activity">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="6" stroke="#9ca3af" stroke-width="1"/>
+                            <path d="M8 4v4l2 2" stroke="#9ca3af" stroke-width="1"/>
+                        </svg>
+                        <span id="lastActivity">Last locked on 25/09/2025 at 14:46:57</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Card -->
+            <div class="actions-card">
+                <div class="card-header">
+                    <h3>Quick Actions</h3>
+                </div>
+                <p class="card-subtitle">Manage your bike security</p>
+                
+                <button id="toggleBtnSmall" class="unlock-btn-small" onclick="toggleBikeLock()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7V5a4 4 0 0 1 8 0" stroke="white" stroke-width="1.5"/>
+                        <rect x="2" y="7" width="12" height="7" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    <span id="btnTextSmall">Unlock Bike</span>
+                </button>
+                <p id="toggleDescription" class="unlock-description">Click to unlock your bike remotely</p>
+            </div>
+        </div>
+
+        <!-- Main Status Section -->
+        <div id="mainStatusCard" class="main-status-card">
+            <div class="lock-icon-container">
+                <div id="lockIconBg" class="lock-icon-bg">
+                    <svg id="lockIcon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 20V16a12 12 0 0 1 24 0v4" stroke="#ef4444" stroke-width="3"/>
+                        <rect x="8" y="20" width="32" height="20" rx="4" fill="#ef4444"/>
+                        <circle cx="24" cy="30" r="3" fill="white"/>
+                        <path d="M24 33v3" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <h2 id="mainStatusTitle" class="main-status-title">Your bike is currently locked</h2>
+            <p id="mainStatusSubtitle" class="main-status-subtitle">Your bike is secure and protected</p>
+            
+            <button id="toggleBtnMain" class="unlock-btn-main" onclick="toggleBikeLock()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 8V6a5 5 0 0 1 10 0" stroke="white" stroke-width="1.5"/>
+                    <rect x="3" y="8" width="14" height="8" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+                </svg>
+                <span id="btnTextMain">Unlock My Bike</span>
+            </button>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

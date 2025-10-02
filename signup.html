@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeSecure - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-section">
+            <div class="logo">
+                <svg width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bicycle logo based on the provided image -->
+                    
+                    <!-- Handlebars -->
+                    <path d="M20 18 Q25 15 30 18" stroke="#2563eb" stroke-width="3" fill="none"/>
+                    <circle cx="18" cy="18" r="2" fill="#2563eb"/>
+                    
+                    <!-- Frame -->
+                    <path d="M30 18 L40 35 L55 18 L40 35 L25 35 Z" stroke="#2563eb" stroke-width="3" fill="none"/>
+                    
+                    <!-- Seat -->
+                    <ellipse cx="55" cy="15" rx="8" ry="3" fill="#60a5fa"/>
+                    <path d="M55 18 L40 35" stroke="#2563eb" stroke-width="3"/>
+                    
+                    <!-- Left wheel -->
+                    <circle cx="15" cy="45" r="12" stroke="#1e293b" stroke-width="3" fill="none"/>
+                    <circle cx="15" cy="45" r="8" stroke="#60a5fa" stroke-width="1" fill="none"/>
+                    <g stroke="#1e293b" stroke-width="1">
+                        <line x1="15" y1="33" x2="15" y2="57"/>
+                        <line x1="3" y1="45" x2="27" y2="45"/>
+                        <line x1="6.5" y1="36.5" x2="23.5" y2="53.5"/>
+                        <line x1="23.5" y1="36.5" x2="6.5" y2="53.5"/>
+                    </g>
+                    <circle cx="15" cy="45" r="3" fill="#2563eb"/>
+                    
+                    <!-- Right wheel -->
+                    <circle cx="65" cy="45" r="12" stroke="#1e293b" stroke-width="3" fill="none"/>
+                    <circle cx="65" cy="45" r="8" stroke="#60a5fa" stroke-width="1" fill="none"/>
+                    <g stroke="#1e293b" stroke-width="1">
+                        <line x1="65" y1="33" x2="65" y2="57"/>
+                        <line x1="53" y1="45" x2="77" y2="45"/>
+                        <line x1="56.5" y1="36.5" x2="73.5" y2="53.5"/>
+                        <line x1="73.5" y1="36.5" x2="56.5" y2="53.5"/>
+                    </g>
+                    <circle cx="65" cy="45" r="3" fill="#2563eb"/>
+                    
+                    <!-- Connect frame to wheels -->
+                    <line x1="25" y1="35" x2="15" y2="45" stroke="#2563eb" stroke-width="3"/>
+                    <line x1="55" y1="35" x2="65" y2="45" stroke="#2563eb" stroke-width="3"/>
+                    
+                    <!-- Chain (simplified) -->
+                    <ellipse cx="40" cy="42" rx="20" ry="3" stroke="#6b7280" stroke-width="1" fill="none"/>
+                </svg>
+            </div>
+            <h1 class="brand-name">BikeSecure</h1>
+            <p class="tagline">Secure your bike with smart locking technology</p>
+        </div>
+        
+        <form class="login-form">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+            </div>
+            
+            <button type="submit" class="sign-in-btn">Sign Up</button>
+        </form>
+        
+        <div class="signup-prompt">
+            <p>Already have an account? <a href="login.html" class="signup-link">Sign in now</a></p>
+        </div>
+    </div>
+</body>
+</html>
